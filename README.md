@@ -1,7 +1,7 @@
 # Run Backend server
-cd api
-run npm install
-node app.js
+***cd api
+**run npm install
+**node app.js
 
 
 # Run FrontEnd
