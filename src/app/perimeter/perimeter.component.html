@@ -1,0 +1,60 @@
+<div class="container">
+  <h2 class="mt-5">Calculate  perimeter of <span class="text-warning"><strong>{{name}}</strong></span></h2>
+</div>
+<div class="form-perimeter" >
+  <h4 *ngIf="!result" class="title mt-20">Enter your paramaters</h4>
+  <h4 *ngIf="result>0" class="title mt-20">Conversion</h4>
+  <form (ngSubmit)="onSubmit(f)" #f="ngForm" class="contact-form "*ngIf="!result">
+    <div *ngIf="name === 'rectangle' ">
+      <div class="form-field col-lg-6">
+        <input id="length" class="input-text js-input" type="number" required name="length" ngModel
+               placeholder="Enter the length">
+      </div>
+      <div class="form-field col-lg-6 ">
+        <input id="width" class="input-text js-input" type="number"
+               placeholder="Enter the width"
+               name="width" ngModel>
+      </div>
+    </div>
+    <div *ngIf="name === 'square' ">
+      <div class="form-field col-lg-12 ">
+        <input id="side" class="input-text js-input" type="number" ngModel name="side"
+               placeholder="Enter the side"
+               required>
+      </div>
+    </div>
+    <div *ngIf="name === 'circle' ">
+      <div class="form-field col-lg-6 ">
+        <input id="radius" class="input-text js-input" type="number" name="radius" placeholder="Enter the radius" ngModel required>
+      </div>
+    </div>
+    <div *ngIf="name === 'trapezium' ">
+      <div class="form-field col-lg-6 ">
+        <input id="side1" class="input-text js-input" type="number" name="side1"  placeholder="Enter first side" ngModel required>
+      </div>
+      <div class="form-field col-lg-6 ">
+        <input id="side2" class="input-text js-input" type="number" name="side2"  placeholder="Enter second side" ngModel required>
+      </div>
+      <div class="form-field col-lg-6 ">
+        <input id="side3" class="input-text js-input" type="number" name="side3"  placeholder="Enter third side" ngModel required>
+      </div>
+      <div class="form-field col-lg-6 ">
+        <input id="side4" class="input-text js-input" type="number" name="side4"  placeholder="Enter fourth side" ngModel required>
+      </div>
+    </div>
+    <div class="form-field col-lg-12">
+      <input class="submit-btn" type="submit" [disabled]="f.invalid" value="Calculate">
+    </div>
+  </form>
+  <div class="col-md-3">
+    <select class="form-select" aria-label="Default select example" (change)="onChange($event,result)" >
+      <option value="meter" selected>Meter</option>
+      <option value="centimeter">Centimeter</option>
+      <option value="kilometer">Kilometer</option>
+      <option value="decimeter"> Decimeter</option>
+    </select>
+  </div>
+
+  <h4 *ngIf="result>0">The perimeter is : {{result}} {{unit}}</h4>
+</div>
+
