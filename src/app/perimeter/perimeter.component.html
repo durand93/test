@@ -46,7 +46,7 @@
       <input class="submit-btn" type="submit" [disabled]="f.invalid" value="Calculate">
     </div>
   </form>
-  <div class="col-md-3">
+  <div class="col-md-3"*ngIf="result>0">
     <select class="form-select" aria-label="Default select example" (change)="onChange($event,result)" >
       <option value="meter" selected>Meter</option>
       <option value="centimeter">Centimeter</option>
