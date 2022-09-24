@@ -1,0 +1,48 @@
+<div class="container">
+  <h2 class="mt-5">Calculate  area of <span class="text-warning"><strong>{{name}}</strong></span></h2>
+</div>
+<div class="form-perimeter">
+  <h4 class="title">Enter your paramaters</h4>
+  <form (ngSubmit)="onSubmit(f)" #f="ngForm" class="contact-form ">
+    <div *ngIf="name === 'rectangle' ">
+      <div class="form-field col-lg-6">
+        <input id="length" class="input-text js-input" type="number" required name="length" ngModel
+               placeholder="Enter the length">
+      </div>
+      <div class="form-field col-lg-6 ">
+        <input id="width" class="input-text js-input" type="number"
+               placeholder="Enter the width"
+               name="width" ngModel>
+      </div>
+    </div>
+    <div *ngIf="name === 'square' ">
+      <div class="form-field col-lg-12 ">
+        <input id="side" class="input-text js-input" type="number" ngModel name="side"
+               placeholder="Enter the side"
+               required>
+      </div>
+    </div>
+    <div *ngIf="name === 'circle' ">
+      <div class="form-field col-lg-6 ">
+        <input id="radius" class="input-text js-input" type="number" name="radius" placeholder="Enter the radius" ngModel required>
+      </div>
+    </div>
+    <div *ngIf="name === 'trapezium' ">
+      <div class="form-field col-lg-6 ">
+        <input id="height" class="input-text js-input" type="number" name="height"  placeholder="Enter height" ngModel required>
+      </div>
+      <div class="form-field col-lg-6 ">
+        <input id="smallBase" class="input-text js-input" type="number" name="smallBase"  placeholder="Enter small base" ngModel required>
+      </div>
+      <div class="form-field col-lg-6 ">
+        <input id="bigBase" class="input-text js-input" type="number" name="bigBase"  placeholder="Enter big base" ngModel required>
+      </div>
+    </div>
+    <div class="form-field col-lg-12">
+      <input class="submit-btn" type="submit" [disabled]="f.invalid" value="Calculate">
+    </div>
+  </form>
+  <h4 *ngIf="result>0">The area is : {{result}}</h4>
+</div>
+
+
